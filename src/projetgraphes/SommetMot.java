@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author Dorian
+ * @author Dorian et Thibaut 
  */
 public class SommetMot
 {
@@ -91,14 +91,15 @@ public class SommetMot
 
     @Override
     public String toString() {
-        return "SommetMot{" + "mot=" + _text + ", relations=" + _relations + '}';
+        return "SommetMot{" + "mot=" + _text + ", relations=" + _relations + '}'+ 
+                System.getProperty("line.separator");
     }
     
     /**
      * Compare si le mot donné est différent de celui comparé
      * à n lettre près
-     * @param mot : le mot à comparé 
-     * @param change : le nombre de changement minimum et maximum
+     * @param mot le mot à comparé 
+     * @param change le nombre de changement minimum et maximum
      * @return retourne true si le mot diffère de n lettre précisément,
      * sinon false
      */

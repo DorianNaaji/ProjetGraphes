@@ -21,6 +21,8 @@ public class ProjetGraphes
     public static void main(String[] args)
     {
         loadGraphes();
+        _graphes.get(0).initializeRelation();
+        System.out.println(_graphes.get(0));
     }
     
     /**
