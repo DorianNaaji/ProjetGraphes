@@ -88,11 +88,13 @@ public class SommetMot
             mot._relations.remove(this);
         }
     }
-
-    @Override
-    public String toString() {
-        return "SommetMot{" + "mot=" + _text + ", relations=" + _relations + '}'+ 
-                System.getProperty("line.separator");
+    
+    public void display(){
+        System.out.print("SommetMot{ mot=" + _text + ", relations=");
+        for(SommetMot mot : _relations){
+            System.out.print(mot._text + " ");
+        }
+        System.out.println("}");
     }
     
     /**

@@ -77,13 +77,14 @@ public class Graphe
     {
         return 0;
     }
-
-    @Override
-    public String toString() {
-        return "Graphe{" + 
-                System.getProperty("line.separator") + 
-                "_sommets=" + _sommets + 
-                System.getProperty("line.separator") + '}';
+    
+    public void display(){
+        System.out.println("Graphe{");
+        for(SommetMot mot : _sommets){
+            mot.display();
+        }
+        System.out.println("}");
+                
     }
     
     
