@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetgraphes;
 
 import java.io.BufferedReader;
@@ -51,6 +46,9 @@ public class Graphe
         }
     }
     
+    /**
+     * Initialise toutes les relations entre tout les sommets du graphe
+     */
     public void initializeRelation(){
         int i = 0;
         for(SommetMot mot : _sommets){
@@ -63,7 +61,7 @@ public class Graphe
     }
     
     /**
-     * 
+     * Obtient le nombre de sommet du graphe
      * @return Retourne le nombre de sommet d'un graphe (Q2)
      */
     public int getNbSommets(){
@@ -71,10 +69,9 @@ public class Graphe
     }
     
     /**
-     * 
+     * Obtient le nombre d'arêtes du graphe
      * @return Retourne le nombre d'arêtes d'un graphe (Q2)
      */
-
     public int getNbAretes()
     {
         int nbAretes = 0;
@@ -86,7 +83,7 @@ public class Graphe
     }
     
     /**
-     * Question 6 : Sommet de degré Max
+     * Obtient le sommet de degré max du  graphe
      * @return le sommet de degréMax
      */
     public SommetMot SommetDedegreMax()
@@ -106,6 +103,11 @@ public class Graphe
         return sommetDegreMax;
     }
     
+    /**
+     * Obtient le nombre de sommet avec k voisins
+     * @param k le nombre de voisin à avoir
+     * @return retourne le nombre de sommet
+     */
     public ArrayList<SommetMot> sommetsAvecKvoisins(int k)
     {
         ArrayList<SommetMot> sommetsAvecKVoisins = new ArrayList<SommetMot>();
@@ -119,6 +121,10 @@ public class Graphe
         return sommetsAvecKVoisins;
     }
     
+    /**
+     * Obtient les mots sans voisins
+     * @return retourne une liste
+     */
     public List<SommetMot> getNbMothSansVoisin(){
         List <SommetMot> list = new ArrayList<>();
         for (SommetMot mot : _sommets) {
@@ -128,6 +134,12 @@ public class Graphe
         return list;
     }
     
+    /**
+     * Permet de visiter le graphe en largeur à partir du sommet
+     * mot
+     * @param mot sommet de départ
+     * @return retourne la liste des sommets visités
+     */
     public List<SommetMot> visiteLargeur(SommetMot mot){
         List<SommetMot> list = new ArrayList<>();
         list.add(mot);
@@ -142,6 +154,10 @@ public class Graphe
         return list;
     }
     
+    /**
+     * Obtient le nombre de composante connexe du graphe
+     * @return retourne le nombre de composante connexe
+     */
     public int getNbComposanteConexes(){
         List<SommetMot> list = new ArrayList<>();
         list.addAll(_sommets);
@@ -157,6 +173,11 @@ public class Graphe
         return i;
     }
     
+    /**
+     * Obtient le plus chemin (diect) existant à partir d'un sommet
+     * @param mot le sommet de départ
+     * @return retourne le taille du plus long chemin
+     */
     public int getPlusLongChemin(SommetMot mot){
         List<SommetMot> list = new ArrayList<>();
         list.add(mot);
@@ -181,6 +202,10 @@ public class Graphe
         return distanceMax;
     }
     
+    /**
+     * Obtient le diamètre du graphe
+     * @return retourne le diamètre
+     */
     public int getDiametre(){
         int distanceMax = 0;
         int tmp;
@@ -192,6 +217,9 @@ public class Graphe
         return distanceMax;        
     }
     
+    /**
+     * Affiche le graphe
+     */
     public void display(){
         System.out.println("Graphe{");
         for(SommetMot mot : _sommets){
@@ -200,6 +228,10 @@ public class Graphe
         System.out.println("}");             
     }
     
+    /**
+     * Obtient le nombre de composante composées de deux sommets uniquement
+     * @return retourne le nombre
+     */
     public int getNbComposantConnexeTaille2(){
         int number = 0;
         for(SommetMot mot : _sommets){

@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetgraphes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Classe représentant des sommets avec un mots et ou les viosins
+ * sont des mots qui varient de 1 lettre.
  * @author Dorian et Thibaut 
  */
 public class SommetMot
@@ -57,9 +53,10 @@ public class SommetMot
         this._marque = marque;
     }
     
-    /*
-        ajoute un mot dans la liste de façons unilatéral
-    */
+    /**
+     * ajoute un mot dans la liste de façons unilatéral
+     * @param mot 
+     */
     public void addRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -70,9 +67,10 @@ public class SommetMot
     }
     
     
-    /*
-        retire un mot de la liste de façons unilatéral
-    */
+    /**
+     * retire un mot de la liste de façons unilatéral
+     * @param mot 
+     */
     public void removeRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -81,9 +79,10 @@ public class SommetMot
         }
     }
     
-    /*
-        créer une relation entre deux sommet
-    */
+    /**
+     * créer une relation entre deux sommet
+     * @param mot le mot
+     */
     public void makeRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -95,9 +94,10 @@ public class SommetMot
         }
     } 
     
-    /*
-        supprime une relation entre deux sommet
-    */
+    /**
+     * supprime une relation entre deux sommet
+     * @param mot le mot ou la relation doit etre delete 
+     */
     public void deleteRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -109,6 +109,9 @@ public class SommetMot
         }
     }
     
+    /**
+     * Affiche le sommet et ses voisins
+     */
     public void display(){
         System.out.print("SommetMot{ mot=" + _text + ", relations=");
         for(SommetMot mot : _relations){
