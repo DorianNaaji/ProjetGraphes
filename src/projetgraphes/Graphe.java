@@ -20,7 +20,6 @@ public class Graphe
     
     private ArrayList<SommetMot> _sommets = new ArrayList<SommetMot>();
     
-    
     /**
      * see : 
      * https://www.caveofprogramming.com/java/java-file-reading-and-writing-files-in-java.html
@@ -50,6 +49,17 @@ public class Graphe
         }
     }
     
+    public void initializeRelation(){
+        int i = 0;
+        for(SommetMot mot : _sommets){
+            i++;
+            for(int j = i; j < _sommets.size(); j++){
+                if (mot.compareTo(_sommets.get(j), 1))
+                    mot.makeRelation(_sommets.get(j));
+            }
+        }
+    }
+    
     /**
      * 
      * @return Retourne le nombre de sommet d'un graphe (Q2)
@@ -67,6 +77,16 @@ public class Graphe
     {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Graphe{" + 
+                System.getProperty("line.separator") + 
+                "_sommets=" + _sommets + 
+                System.getProperty("line.separator") + '}';
+    }
+    
+    
 }   
     
     

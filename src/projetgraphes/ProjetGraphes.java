@@ -22,6 +22,8 @@ public class ProjetGraphes
     {
         // Question 1 : Chargement des mots et construction des graphes
         loadGraphes();
+        _graphes.get(0).initializeRelation();
+        System.out.println(_graphes.get(0));
         // Question 2 : Nombre de sommets et nombre d'arêtes de chaque graphe pour chaque ensemble de mots
         getNbSommets_NbAretes_Graphes();
     }
