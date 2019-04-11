@@ -37,7 +37,9 @@ public class SommetMot
         _mot = mot;   
     }
     
-    // ajoute un mot dans la liste de façons unilatéral
+    /*
+        ajoute un mot dans la liste de façons unilatéral
+    */
     public void addRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -47,7 +49,10 @@ public class SommetMot
             
     }
     
-    // retire un mot de la liste de façons unilatéral
+    
+    /*
+        retire un mot de la liste de façons unilatéral
+    */
     public void removeRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -56,7 +61,9 @@ public class SommetMot
         }
     }
     
-    // créer une relation entre deux sommet
+    /*
+        créer une relation entre deux sommet
+    */
     public void makeRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -68,7 +75,9 @@ public class SommetMot
         }
     } 
     
-    // supprime une relation entre deux sommet
+    /*
+        supprime une relation entre deux sommet
+    */
     public void deleteRelation(SommetMot mot){
         if(mot == null)
             throw new IllegalArgumentException();
@@ -79,6 +88,13 @@ public class SommetMot
             mot._relations.remove(mot);
         }
     }
+
+    @Override
+    public String toString() {
+        return "SommetMot{" + "mot=" + _mot + ", relations=" + _relations + '}';
+    }
+    
+    
     
     
 }
