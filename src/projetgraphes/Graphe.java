@@ -199,7 +199,7 @@ public class Graphe
             sommet.setMarque(false);
             sommet.setValeur(0);
         }
-        return distanceMax;
+        return distanceMax + 1;
     }
     
     /**
