@@ -18,7 +18,7 @@ import java.util.HashSet;
 public class Graphe
 {
     
-    private ArrayList<SommetMot> _sommets;
+    private ArrayList<SommetMot> _sommets = new ArrayList<SommetMot>();
     
     
     /**
@@ -36,8 +36,8 @@ public class Graphe
             BufferedReader buffer = new BufferedReader(reader);
             while( (mot = buffer.readLine()) != null)
             {
-               //SommetMot 
-                System.out.println(mot);
+                SommetMot sommet = new SommetMot(mot);
+                this._sommets.add(sommet);
             }
 
             buffer.close();
