@@ -16,6 +16,7 @@ public class SommetMot
 {
     private String _text;
     private List<SommetMot> _relations = new ArrayList<SommetMot>();
+    private boolean _marque;
 
     public String getText() {
         return _text;
@@ -34,7 +35,16 @@ public class SommetMot
     }
     
     public SommetMot(String text){
-        _text = text;   
+        _text = text;  
+        _marque = false;
+    }
+    
+    public boolean getMarque() {
+        return _marque;
+    }
+
+    public void setMarque(boolean marque) {
+        this._marque = marque;
     }
     
     /*

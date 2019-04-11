@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -78,13 +80,50 @@ public class Graphe
         return 0;
     }
     
+    public List<SommetMot> getNbMothSansVoisin(){
+        List <SommetMot> list = new ArrayList<>();
+        for (SommetMot mot : _sommets) {
+            if(mot.getRelations().isEmpty())
+                list.add(mot);
+        }
+        return list;
+    }
+    
+    public List<SommetMot> visiteLargeur(SommetMot mot){
+        List<SommetMot> list = new ArrayList<>();
+        list.add(mot);
+        for(int i = 0; i < list.size(); i++){
+            for(SommetMot voisin : list.get(i).getRelations()){
+                if(!voisin.getMarque()){
+                    list.add(voisin);
+                    voisin.setMarque(true);
+                }
+            }
+        }
+        return list;
+    }
+    
+    public int getNbComposanteConexes(){
+        List<SommetMot> list = new ArrayList<>();
+        list.addAll(_sommets);
+        int i = 0;
+        //return visiteLargeur(list.get(0)).size();
+        while(!list.isEmpty()){
+            list.removeAll(visiteLargeur(list.get(0)));
+            i++;
+        }
+        // remet les marque à zero
+        for(SommetMot mot : _sommets)
+            mot.setMarque(false);
+        return i;
+    }
+    
     public void display(){
         System.out.println("Graphe{");
         for(SommetMot mot : _sommets){
             mot.display();
         }
-        System.out.println("}");
-                
+        System.out.println("}");             
     }
     
     

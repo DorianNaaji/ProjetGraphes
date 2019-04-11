@@ -6,6 +6,7 @@
 package projetgraphes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -22,8 +23,9 @@ public class ProjetGraphes
     {
         // Question 1 : Chargement des mots et construction des graphes
         loadGraphes();
-        _graphes.get(0).initializeRelation();
-        _graphes.get(0).display();
+        _graphes.get(1).initializeRelation();
+        List<SommetMot> list = _graphes.get(0).getNbMothSansVoisin();
+        System.out.println("le nombre de composante connexe : " + _graphes.get(1).getNbComposanteConexes());
         // Question 2 : Nombre de sommets et nombre d'arêtes de chaque graphe pour chaque ensemble de mots
         getNbSommets_NbAretes_Graphes();
     }
