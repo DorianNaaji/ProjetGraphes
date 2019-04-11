@@ -39,6 +39,7 @@ public class ProjetGraphes
         getNbSommets_NbAretes_Graphes(numero);
         sommetsAvecKvoisins(numero);
         System.out.println("le diametre du graphe est: " + _graphes.get(numero).getDiametre());
+        System.out.println(_graphes.get(numero).getNbComposanteConexes());
         System.out.println(_graphes.get(numero).getNbComposantConnexeTaille2());
     }
     

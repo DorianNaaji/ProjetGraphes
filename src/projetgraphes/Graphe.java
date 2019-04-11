@@ -201,23 +201,13 @@ public class Graphe
     }
     
     public int getNbComposantConnexeTaille2(){
-        List<SommetMot> list = new ArrayList<>();
-        list.addAll(_sommets);
-        int i = 0;
-        int nombre = 0;
-        //return visiteLargeur(list.get(0)).size();
-        while(!list.isEmpty()){
-            List<SommetMot> composante = visiteLargeur(list.get(0));
-            if(composante.size() == 2)
-                nombre++;
-            list.removeAll(composante);
-            i++;
-            
+        int number = 0;
+        for(SommetMot mot : _sommets){
+            if(mot.getRelations().size() == 1)
+                if(mot.getRelations().get(0).getRelations().size() == 1)
+                    number++;                   
         }
-        // remet les marque à zero
-        for(SommetMot mot : _sommets)
-            mot.setMarque(false);
-        return nombre;
+        return number / 2;
     }
     
     
