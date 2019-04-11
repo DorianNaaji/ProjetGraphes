@@ -11,5 +11,6 @@ package projetgraphes;
  */
 public class SommetMot
 {
+    private String _mot;
     
 }

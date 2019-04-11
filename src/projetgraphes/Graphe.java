@@ -5,6 +5,8 @@
  */
 package projetgraphes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Dorian
@@ -12,4 +14,11 @@ package projetgraphes;
 public class Graphe
 {
     
+    private ArrayList<SommetMot> _sommets;
+    
+    
+    public void loadFiles()
+    {
+        
+    }
 }
