@@ -70,8 +70,8 @@ public class SommetMot
         if(!_relations.contains(mot)){
             _relations.add(mot);
         }
-        if(!mot._relations.contains(mot)){
-            mot._relations.add(mot);
+        if(!mot._relations.contains(this)){
+            mot._relations.add(this);
         }
     } 
     
@@ -84,10 +84,9 @@ public class SommetMot
         if(_relations.contains(mot)){
             _relations.remove(mot);
         }
-        if(mot._relations.contains(mot)){
-            mot._relations.remove(mot);
+        if(mot._relations.contains(this)){
+            mot._relations.remove(this);
         }
-        _
     }
 
     @Override
@@ -95,7 +94,24 @@ public class SommetMot
         return "SommetMot{" + "mot=" + _text + ", relations=" + _relations + '}';
     }
     
-    //public boolean 
+    /**
+     * Compare si le mot donné est différent de celui comparé
+     * à n lettre près
+     * @param mot : le mot à comparé 
+     * @param change : le nombre de changement minimum et maximum
+     * @return retourne true si le mot diffère de n lettre précisément,
+     * sinon false
+     */
+    public boolean compareTo(SommetMot mot, int change){
+        int diff = 0;
+        int i = 0;
+        while(i < _text.length() && diff <= change){
+            if(_text.charAt(i) != mot._text.charAt(i))
+                diff++;
+            i++;
+        }
+        return (change == diff);
+    }
     
     
     
