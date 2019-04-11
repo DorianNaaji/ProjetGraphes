@@ -157,12 +157,67 @@ public class Graphe
         return i;
     }
     
+    public int getPlusLongChemin(SommetMot mot){
+        List<SommetMot> list = new ArrayList<>();
+        list.add(mot);
+        mot.setValeur(0);
+        int distanceMax = 0;
+        for(int i = 0; i < list.size(); i++){
+            for(SommetMot voisin : list.get(i).getRelations()){
+                if(!voisin.getMarque()){
+                    list.add(voisin);
+                    voisin.setMarque(true);
+                    voisin.setValeur(list.get(i).getValeur() + 1);
+                    if(voisin.getValeur() > distanceMax)
+                        distanceMax = voisin.getValeur();
+                }
+            }
+        }
+        // remet les marque à zero
+        for(SommetMot sommet :_sommets){
+            sommet.setMarque(false);
+            sommet.setValeur(0);
+        }
+        return distanceMax;
+    }
+    
+    public int getDiametre(){
+        int distanceMax = 0;
+        int tmp;
+        for(SommetMot mot : _sommets){
+            tmp = getPlusLongChemin(mot);
+            if(tmp > distanceMax) 
+                distanceMax = tmp;
+        }
+        return distanceMax;        
+    }
+    
     public void display(){
         System.out.println("Graphe{");
         for(SommetMot mot : _sommets){
             mot.display();
         }
         System.out.println("}");             
+    }
+    
+    public int getNbComposantConnexeTaille2(){
+        List<SommetMot> list = new ArrayList<>();
+        list.addAll(_sommets);
+        int i = 0;
+        int nombre = 0;
+        //return visiteLargeur(list.get(0)).size();
+        while(!list.isEmpty()){
+            List<SommetMot> composante = visiteLargeur(list.get(0));
+            if(composante.size() == 2)
+                nombre++;
+            list.removeAll(composante);
+            i++;
+            
+        }
+        // remet les marque à zero
+        for(SommetMot mot : _sommets)
+            mot.setMarque(false);
+        return nombre;
     }
     
     

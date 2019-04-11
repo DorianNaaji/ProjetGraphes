@@ -21,6 +21,7 @@ public class ProjetGraphes
      */
     public static void main(String[] args)
     {
+        int numero = 0;
         // Question 1 : Chargement des mots et construction des graphes
         loadGraphes();
 //        _graphes.get(1).initializeRelation();
@@ -28,15 +29,17 @@ public class ProjetGraphes
 //        System.out.println("le nombre de composante connexe : " + _graphes.get(1).getNbComposanteConexes());
 //        // Question 2 : Nombre de sommets et nombre d'arêtes de chaque graphe pour chaque ensemble de mots
 //        getNbSommets_NbAretes_Graphes();
-        _graphes.get(0).initializeRelation();
-        _graphes.get(0).display();
+        _graphes.get(numero).initializeRelation();
+        //_graphes.get(0).display();
         // question 6
-        System.out.println(_graphes.get(0).SommetDedegreMax().getText());
-        System.out.println(_graphes.get(0).SommetDedegreMax().getRelations().size());
+        System.out.println(_graphes.get(numero).SommetDedegreMax().getText());
+        System.out.println(_graphes.get(numero).SommetDedegreMax().getRelations().size());
         // Question 2 : Nombre de sommets et nombre d'arêtes de chaque graphe 
         // pour chaque ensemble de mots
-        getNbSommets_NbAretes_Graphes(0);
-        sommetsAvecKvoisins(0);
+        getNbSommets_NbAretes_Graphes(numero);
+        sommetsAvecKvoisins(numero);
+        System.out.println("le diametre du graphe est: " + _graphes.get(numero).getDiametre());
+        System.out.println(_graphes.get(numero).getNbComposantConnexeTaille2());
     }
     
 
