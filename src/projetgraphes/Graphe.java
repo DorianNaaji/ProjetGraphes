@@ -6,11 +6,8 @@
 package projetgraphes;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -25,7 +22,8 @@ public class Graphe
     /**
      * see : 
      * https://www.caveofprogramming.com/java/java-file-reading-and-writing-files-in-java.html
-     * QUESTION 1 : permet de charger tous les mots d'un fichier et de les ajouter à la liste de sommet de notre graphe de mots de taille i
+     * QUESTION 1 : permet de charger tous les mots d'un fichier et de 
+     * les ajouter à la liste de sommet de notre graphe de mots de taille i
      */
     public void load(String filename)
     {
@@ -38,7 +36,8 @@ public class Graphe
             // tant qu'il y a des mots dans le fichier
             while( (mot = buffer.readLine()) != null)
             {
-                // on crée un sommet à partir du mot courant du fichier ( de la ligne courante du fichier)
+                // on crée un sommet à partir du mot courant du fichier 
+                // ( de la ligne courante du fichier)
                 SommetMot sommet = new SommetMot(mot);
                 // on l'ajoute à notre liste de sommets du graphe
                 this._sommets.add(sommet);
@@ -66,8 +65,7 @@ public class Graphe
      * 
      * @return Retourne le nombre de sommet d'un graphe (Q2)
      */
-    public int getNbSommets()
-    {
+    public int getNbSommets(){
         return this._sommets.size();
     }
     
@@ -75,8 +73,7 @@ public class Graphe
      * 
      * @return Retourne le nombre d'arêtes d'un graphe (Q2)
      */
-    public int getNbAretes()
-    {
+    public int getNbAretes(){
         return 0;
     }
     
