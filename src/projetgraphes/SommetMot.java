@@ -14,15 +14,15 @@ import java.util.List;
  */
 public class SommetMot
 {
-    private String _mot;
+    private String _text;
     private List<SommetMot> _relations = new ArrayList<SommetMot>();
 
-    public String getMot() {
-        return _mot;
+    public String getText() {
+        return _text;
     }
 
-    public void setMot(String mot) {
-        this._mot = mot;
+    public void setText(String text) {
+        this._text = text;
     }
 
     public List<SommetMot> getRelations() {
@@ -33,8 +33,8 @@ public class SommetMot
         this._relations = relations;
     }
     
-    public SommetMot(String mot){
-        _mot = mot;   
+    public SommetMot(String text){
+        _text = text;   
     }
     
     /*
@@ -87,12 +87,15 @@ public class SommetMot
         if(mot._relations.contains(mot)){
             mot._relations.remove(mot);
         }
+        _
     }
 
     @Override
     public String toString() {
-        return "SommetMot{" + "mot=" + _mot + ", relations=" + _relations + '}';
+        return "SommetMot{" + "mot=" + _text + ", relations=" + _relations + '}';
     }
+    
+    //public boolean 
     
     
     
