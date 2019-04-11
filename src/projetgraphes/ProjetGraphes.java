@@ -60,7 +60,7 @@ public class ProjetGraphes
     
     /**
      * QUESTION 2
-     * Affichage de la Q2
+     * Affichage de la Q2 (pour tous les graphes)
      */
     private static void getNbSommets_NbAretes_Graphes()
     {
