@@ -20,7 +20,10 @@ public class ProjetGraphes
      */
     public static void main(String[] args)
     {
+        // Question 1 : Chargement des mots et construction des graphes
         loadGraphes();
+        // Question 2 : Nombre de sommets et nombre d'arêtes de chaque graphe pour chaque ensemble de mots
+        getNbSommets_NbAretes_Graphes();
     }
     
     /**
@@ -62,7 +65,7 @@ public class ProjetGraphes
         for(int i = 0; i < _graphes.size(); i++)
         {
             System.out.println("Le nombre de sommets du " + i + "ème graphe est " + _graphes.get(i).getNbSommets());
-            System.out.println("Le nombre de sommets du " + i + "ème graphe est " + _graphes.get(i).getNbSommets());
+            System.out.println("Le nombre d'arêtes du " + i + "ème graphe est " + _graphes.get(i).getNbAretes());
         }
     }
 }
