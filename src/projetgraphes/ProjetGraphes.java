@@ -21,49 +21,62 @@ public class ProjetGraphes
      */
     public static void main(String[] args)
     {
+        // pour avoir les réponses aux questions sur un graphe, il suffit de donné son indice dans numéro et d'appeler la méthode affichagePourUnGraphe :
+        // Pour le 1er graphe (mots de taille 4) : On donne pour indice 0
+        // (...)
+        // Pour le 15 ème graphe, on donne pour indice 14 (mot de taille 18)
         int numero = 0;
-        // Question 1 : Chargement des mots et construction des graphes
-        loadGraphes();
-//        _graphes.get(1).initializeRelation();
-//        List<SommetMot> list = _graphes.get(0).getNbMothSansVoisin();
-//        System.out.println("le nombre de composante connexe : " + _graphes.get(1).getNbComposanteConexes());
-//        // Question 2 : Nombre de sommets et nombre d'arêtes de chaque graphe pour chaque ensemble de mots
-//        getNbSommets_NbAretes_Graphes();
-        _graphes.get(numero).initializeRelation();
-        //_graphes.get(0).display();
-        // question 6
-        System.out.println(_graphes.get(numero).SommetDedegreMax().getText());
-        System.out.println(_graphes.get(numero).SommetDedegreMax().getRelations().size());
-        // Question 2 : Nombre de sommets et nombre d'arêtes de chaque graphe 
-        // pour chaque ensemble de mots
-        getNbSommets_NbAretes_Graphes(numero);
-        sommetsAvecKvoisins(numero);
-        System.out.println("le diametre du graphe est: " + _graphes.get(numero).getDiametre());
-        System.out.println(_graphes.get(numero).getNbComposanteConexes());
-        System.out.println(_graphes.get(numero).getNbComposantConnexeTaille2());
+        affichagePourUnGraphe(numero);
     }
     
-
+    
     /**
-     * Question 6
+     * Cette méthode permet d'afficher toutes les informations demandées de l'énoncé pour un graphe donné (sachant que l'indice du graphe va de 0 à 14, donc 15 grapges pour 15 fichiers)
+     * @param indiceGraphe 
      */
-    private static void sommetsAvecKvoisins(int indiceSommet)
+    private static void affichagePourUnGraphe(int indiceGraphe)
     {
-        if(indiceOk(indiceSommet))
+        if(indiceOk(indiceGraphe))
         {
-            int nMax = _graphes.get(indiceSommet).SommetDedegreMax().getRelations().size();
+            loadGraphes();
+            _graphes.get(indiceGraphe).initializeRelation();
+            int ième = indiceGraphe+1;
+            System.out.println("--- Question 2 --- ");
+            System.out.println("Le nombre de sommets du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getNbSommets());
+            System.out.println("Le nombre d'arêtes du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getNbAretes());
+            System.out.println();
+            
+            System.out.println("--- Question 3 --- ");
+            System.out.println("Le nombre de composantes connexes du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getNbComposanteConexes());
+            System.out.println();
+            
+            System.out.println("--- Question 4 --- ");
+            System.out.println("Le nombre de mots sans voisin(s) du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getNbMothSansVoisin());
+            System.out.println();
+            
+            System.out.println("--- Question 5 --- ");
+            System.out.println("Le nombre de composantes connexes constituées uniquement de deux mots du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getNbComposantConnexeTaille2());
+            System.out.println();
+            
+            System.out.println("--- Question 7 --- ");
+            System.out.println("Le diamètre du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getDiametre());
+            System.out.println();
+            
+            System.out.println("--- Question 6 --- ");
+            int nMax = _graphes.get(indiceGraphe).SommetDedegreMax().getRelations().size();
             System.out.println("Le degré maximal du graphe est : " +  nMax);
             for(int i = 1; i <= nMax; i ++)
             {
-                int nbSommetsAvecKvoisins = _graphes.get(indiceSommet).sommetsAvecKvoisins(i).size();
-                System.out.println("Le nombre de sommets avec k = " + i + " voisins est : " + nbSommetsAvecKvoisins);
+                int nbSommetsAvecKvoisins = _graphes.get(indiceGraphe).sommetsAvecKvoisins(i).size();
+                System.out.println("Le nombre de sommets avec k = " + i + " voisins du " + ième + "ème graphe est : " + nbSommetsAvecKvoisins);
             }
+            System.out.println();
         }
-      
     }
+   
     
     /**
-     * Cette méthode permet de créer tous les graphes contenant des mots de taille i.
+     * Cette méthode permet de créer tous les sommets des graphes contenant des mots de taille i, à partir des fichiers donnés.
      * On crée dynamiquement un nom de fichier txt puis on charge l'ensemble de ses mots.
      */
     private static void loadGraphes()
@@ -91,21 +104,11 @@ public class ProjetGraphes
          }
     }
    
-    
-    
     /**
-     * QUESTION 2
-     * Affichage de la Q2 (pour le indiceSommet ième graphe)
+     * Confirme qu'un indice donné dans le main est entre 0 et 14
+     * @param indice
+     * @return 
      */
-    private static void getNbSommets_NbAretes_Graphes(int indiceSommet)
-    {
-        if(indiceOk(indiceSommet))
-        {
-            System.out.println("Le nombre de sommets du " + indiceSommet + "ème graphe est " + _graphes.get(indiceSommet).getNbSommets());
-            System.out.println("Le nombre d'arêtes du " + indiceSommet + "ème graphe est " + _graphes.get(indiceSommet).getNbAretes());
-        }
-    }
-    
     private static boolean indiceOk(int indice)
     {
         return indice < 15 && indice >= 0;
