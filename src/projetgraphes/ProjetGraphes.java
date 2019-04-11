@@ -51,7 +51,7 @@ public class ProjetGraphes
             System.out.println();
             
             System.out.println("--- Question 4 --- ");
-            System.out.println("Le nombre de mots sans voisin(s) du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getNbMothSansVoisin());
+            System.out.println("Le nombre de mots sans voisin(s) du " + ième + "ème graphe est " + _graphes.get(indiceGraphe).getNbMothSansVoisin().size());
             System.out.println();
             
             System.out.println("--- Question 5 --- ");

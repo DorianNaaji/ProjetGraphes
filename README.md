@@ -1,6 +1,6 @@
 # ProjetGraphes - DELPLANQUE Thibaut & NAAJI Dorian
 
-# L'ensemble des résultats dont disponibles dans deux fichier Resultats.xlsx (Excel) et Resultats.ods (openDocument)
+# L'ensemble des résultats dont disponibles dans deux fichier Resultats.xlsx (Excel) et Resultats.ods (openDocument) à la racine de l'archive et du repository github.
 
 ## repository github
 [github - ProjetGraphes](https://github.com/DorianNaaji/ProjetGraphes)
