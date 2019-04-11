@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author Dorian
@@ -73,8 +74,49 @@ public class Graphe
      * 
      * @return Retourne le nombre d'arêtes d'un graphe (Q2)
      */
-    public int getNbAretes(){
-        return 0;
+
+    public int getNbAretes()
+    {
+        int nbAretes = 0;
+        for(int i = 0; i < this._sommets.size(); i++)
+        {
+            nbAretes += this._sommets.get(i).getRelations().size();
+        }
+        return nbAretes/2;
+    }
+    
+    /**
+     * Question 6 : Sommet de degré Max
+     * @return le sommet de degréMax
+     */
+    public SommetMot SommetDedegreMax()
+    {
+        int nMax = 0;
+        SommetMot sommetDegreMax = null;
+        for(int i = 0; i < this._sommets.size(); i++)
+        {
+            int degreCourant = this._sommets.get(i).getRelations().size();
+           // nMax = (degreCourant > nMax) ? degreCourant : nMax;
+           if(degreCourant > nMax)
+           {
+               nMax = degreCourant;
+               sommetDegreMax = this._sommets.get(i);
+           }
+        }
+        return sommetDegreMax;
+    }
+    
+    public ArrayList<SommetMot> sommetsAvecKvoisins(int k)
+    {
+        ArrayList<SommetMot> sommetsAvecKVoisins = new ArrayList<SommetMot>();
+        for(int i = 0; i < this._sommets.size(); i++)
+        {
+            if(this._sommets.get(i).getRelations().size() == k)
+            {
+                sommetsAvecKVoisins.add(this._sommets.get(i));
+            }
+        }
+        return sommetsAvecKVoisins;
     }
     
     public List<SommetMot> getNbMothSansVoisin(){
